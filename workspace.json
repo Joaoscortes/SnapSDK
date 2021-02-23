@@ -86,6 +86,47 @@
 					}
 				}
 			}
+		},
+		"snapsdk": {
+			"projectType": "library",
+			"schematics": {},
+			"root": "packages/snapsdk",
+			"sourceRoot": "packages/snapsdk",
+			"architect": {
+				"build": {
+					"builder": "@nrwl/node:package",
+					"options": {
+						"outputPath": "dist/packages/snapsdk",
+						"tsConfig": "packages/snapsdk/tsconfig.json",
+						"packageJson": "packages/snapsdk/package.json",
+						"main": "packages/snapsdk/index.ts",
+						"assets": [
+							"packages/snapsdk/*.md",
+							"packages/snapsdk/index.d.ts",
+							"LICENSE",
+							{
+								"glob": "**/*",
+								"input": "packages/snapsdk/platforms/",
+								"output": "./platforms/"
+							}
+						]
+					}
+				},
+				"build.all": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": ["nx run snapsdk:build", "node tools/scripts/build-finish.ts snapsdk"],
+						"parallel": false
+					}
+				},
+				"focus": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": ["nx g @nativescript/plugin-tools:focus-packages snapsdk"],
+						"parallel": false
+					}
+				}
+			}
 		}
 	},
 	"cli": {

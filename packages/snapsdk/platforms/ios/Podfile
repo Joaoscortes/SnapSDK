@@ -1,0 +1,1 @@
+pod 'SnapSDK', :subspecs => ['SCSDKCreativeKit']
