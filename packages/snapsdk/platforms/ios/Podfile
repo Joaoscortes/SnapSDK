@@ -1,1 +1,3 @@
-pod 'SnapSDK', :subspecs => ['SCSDKCreativeKit']
+# pod 'SnapSDK', :subspecs => ['SCSDKCreativeKit']
+pod 'SnapSDK', '1.4.0', :subspecs => ['SCSDKCreativeKit']
+# pod 'SnapSDK', '1.6.9', :subspecs => ['SCSDKCreativeKit']
